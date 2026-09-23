@@ -1,0 +1,407 @@
+ipv6: true
+allow_external_connections: false
+vif_only: false
+block_quic: false
+close_connections_on_policy_change: false
+hide_vpn_icon: false
+hijack_dns:
+- '*:53'
+geoip_db_url: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/country.mmdb
+asn_db_url: https://github.com/MetaCubeX/meta-rules-dat/releases/download/latest/GeoLite2-ASN.mmdb
+proxy_latency_test_url: https://www.gstatic.com/generate_204
+compat_route: false
+include_all_networks: false
+include_apns: false
+include_cellular_services: false
+include_local_networks: false
+vif_excluded_routes:
+- 192.168.0.0/16
+- 10.0.0.0/8
+- 172.16.0.0/12
+- 100.64.0.0/10
+- fe80::/10
+- 169.254.0.0/16
+- 127.0.0.0/8
+- ff00::/8
+- 224.0.0.0/4
+- fc00::/7
+- ::1/128
+- ::/128
+- ::ffff:0:0/96
+- 255.255.255.255/32
+dns:
+  bootstrap:
+  - 119.29.29.29
+  - 223.5.5.5
+  upstreams:
+    direct_dns:
+    - https://1.12.12.12/dns-query
+    - https://223.5.5.5/dns-query
+    proxy_dns:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+    final_dns:
+    - https://1.1.1.1/dns-query
+    - https://8.8.8.8/dns-query
+  forward:
+  - domain_suffix:
+      match: lan
+      value: direct_dns
+  - domain_suffix:
+      match: local
+      value: direct_dns
+  - domain_suffix:
+      match: in-addr.arpa
+      value: direct_dns
+  - domain_suffix:
+      match: ip6.arpa
+      value: direct_dns
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Lan/Lan.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Apple/Apple_All_No_Resolve.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/NTPService/NTPService.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/GaoDe/GaoDe.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/WeChat/WeChat.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/ByteDance/ByteDance.yaml
+      value: direct_dns
+      update_interval: 172800
+  - domain_suffix:
+      match: qishui.com
+      value: direct_dns
+  - domain_suffix:
+      match: bytemastatic.com
+      value: direct_dns
+  - domain_suffix:
+      match: doupay.com
+      value: direct_dns
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Tencent/Tencent_All_No_Resolve.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/BiliBili/BiliBili.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/MeiTuan/MeiTuan.yaml
+      value: direct_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/OpenAI/OpenAI.yaml
+      value: proxy_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Claude/Claude.yaml
+      value: proxy_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Telegram/Telegram.yaml
+      value: proxy_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/GitHub/GitHub.yaml
+      value: proxy_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Google/Google.yaml
+      value: proxy_dns
+      update_interval: 172800
+  - proxy_rule_set:
+      match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/China/China_All_No_Resolve.yaml
+      value: direct_dns
+      update_interval: 172800
+  - domain_wildcard:
+      match: '*'
+      value: final_dns
+  proxy_nameservers:
+  - https://1.12.12.12/dns-query
+  - https://223.5.5.5/dns-query
+  block_ips:
+  - 192.0.2.0/24
+  - 198.51.100.0/24
+  - 203.0.113.0/24
+  - 198.18.0.0/15
+  - 0.0.0.0/8
+  - 127.0.0.0/8
+  - 224.0.0.0/4
+  - 240.0.0.0/4
+  - 169.254.0.0/16
+  - fc00::/7
+  - fe80::/10
+  - ff00::/8
+  - ::/128
+  - ::1/128
+  - ::ffff:0:0/96
+  - 100::/64
+  - 2001:db8::/32
+  - 3fff::/20
+  public_ip_lookup_url: https://ifconfig.me/ip
+bypass_tunnel_proxy:
+- '*.lan'
+- '*.local'
+- 192.168.0.0/16
+- 10.0.0.0/8
+- 172.16.0.0/12
+- 100.64.0.0/10
+- fe80::/10
+- 169.254.0.0/16
+- 127.0.0.0/8
+- ff00::/8
+- 224.0.0.0/4
+- fc00::/7
+- ::1/128
+- ::/128
+- ::ffff:0:0/96
+- 240.0.0.0/4
+- 255.255.255.255/32
+real_ip_domains:
+- '*.local'
+- localhost
+- '*.lan'
+- '*.arpa'
+policy_groups:
+- external:
+    name: 1号机场
+    type: select
+    urls:
+    - 1号机场订阅链接
+    #filter: TW PrivateNET 02|TW PrivateNET 03|SG PrivateNET 02|SG PrivateNET 03
+    update_interval: 86400
+    icon: https://raw.githubusercontent.com/TellMeWhy31415926/icon/refs/heads/main/kendeji2clear_com_tran.png
+    hidden: false
+- external:
+    name: 2号机场
+    type: select
+    urls:
+    - 2号机场订阅链接
+    #filter: 新加坡•移联02|台湾•移联01
+    update_interval: 86400
+    icon: https://raw.githubusercontent.com/TellMeWhy31415926/icon/refs/heads/main/Screenshot_20260916_111921_Firefox.jpg
+    hidden: false
+- external:
+    name: 3号机场
+    type: select
+    urls:
+    - 3号机场订阅链接
+    #filter: Singapore 03|Taiwan 03
+    update_interval: 86400
+    icon: https://raw.githubusercontent.com/TellMeWhy31415926/icon/refs/heads/main/Screenshot_20260916_112137_Firefox.jpg
+    hidden: false
+- auto_test:
+    name: TW自动
+    policies:
+    - 1号机场
+    - 2号机场
+    - 3号机场
+    flatten: true
+    filter: TW|台湾|Taiwan
+    interval: 900
+    tolerance: 30
+    timeout: 3
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
+    hidden: false
+- auto_test:
+    name: SG自动
+    policies:
+    - 1号机场
+    - 2号机场
+    - 3号机场
+    flatten: true
+    filter: SG|新加坡|Singapore
+    interval: 900
+    tolerance: 30
+    timeout: 3
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+    hidden: false
+- select:
+    name: AiHub策略
+    policies:
+    - SG自动
+    flatten: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png
+    hidden: false
+- select:
+    name: Telegram策略
+    policies:
+    - TW自动
+    flatten: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+    hidden: false
+- select:
+    name: GitHub策略
+    policies:
+    - SG自动
+    flatten: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
+    hidden: false
+- select:
+    name: Google策略
+    policies:
+    - SG自动
+    flatten: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+    hidden: false
+- select:
+    name: GFW策略
+    policies:
+    - SG自动
+    flatten: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png
+    hidden: false
+- select:
+    name: Portal策略
+    policies:
+    - TW自动
+    flatten: false
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+    hidden: false
+rules:
+- or:
+    name: IOS规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Apple/Apple_All_No_Resolve.yaml
+        update_interval: 172800
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/NTPService/NTPService.yaml
+        update_interval: 172800
+    policy: DIRECT
+- or:
+    name: Gaode规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/GaoDe/GaoDe.yaml
+        update_interval: 172800
+    policy: DIRECT
+- or:
+    name: WeChat规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/WeChat/WeChat.yaml
+        update_interval: 172800
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Tencent/Tencent_All_No_Resolve.yaml
+        update_interval: 172800
+    policy: DIRECT
+- or:
+    name: DouYin规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/ByteDance/ByteDance.yaml
+        update_interval: 172800
+    - domain_suffix:
+        match: qishui.com
+    - domain_suffix:
+        match: bytemastatic.com
+    - domain_suffix:
+        match: doupay.com
+    policy: DIRECT
+- or:
+    name: BiliBili规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/BiliBili/BiliBili.yaml
+        update_interval: 172800
+    policy: DIRECT
+- or:
+    name: MeiTuan规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/MeiTuan/MeiTuan.yaml
+        update_interval: 172800
+    policy: DIRECT
+- or:
+    name: GitHub规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/GitHub/GitHub.yaml
+        update_interval: 172800
+    policy: GitHub策略
+    disabled: false
+- or:
+    name: AiHub规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/OpenAI/OpenAI.yaml
+        update_interval: 172800
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Claude/Claude.yaml
+        update_interval: 172800
+    policy: AiHub策略
+    disabled: false
+- or:
+    name: Telegram规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Telegram/Telegram.yaml
+        update_interval: 172800
+    policy: Telegram策略
+    disabled: false
+- or:
+    name: Google规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Google/Google.yaml
+        update_interval: 172800
+    policy: Google策略
+    disabled: false
+- or:
+    name: GFW·Mini规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Proxy/Proxy_All_No_Resolve.yaml
+        update_interval: 172800
+    policy: GFW策略
+    disabled: false
+- or:
+    name: CN·Mini规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/China/China_All_No_Resolve.yaml
+        update_interval: 172800
+    policy: DIRECT
+    disabled: false
+- or:
+    name: CN·ASN规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/ChinaASN/ChinaASN.yaml
+        update_interval: 172800
+    policy: DIRECT
+    disabled: false
+- or:
+    name: Private规则
+    match:
+    - rule_set:
+        match: https://raw.githubusercontent.com/Repcz/EgernRules/X/Rules/Lan/Lan.yaml
+        update_interval: 172800
+    - ip_cidr6:
+        match: ::ffff:0:0/96
+    policy: DIRECT
+    disabled: false
+- or:
+    name: CN·GeoIP规则
+    match:
+    - geoip:
+        match: CN
+        no_resolve: true
+    policy: DIRECT
+    disabled: false
+- default:
+    name: Portal规则
+    policy: Portal策略
