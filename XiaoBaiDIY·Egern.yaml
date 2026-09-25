@@ -180,27 +180,27 @@ policy_groups:
     type: select
     urls:
     - 1号机场订阅链接
-    #filter: TW PrivateNET 02|TW PrivateNET 03|SG PrivateNET 02|SG PrivateNET 03
+    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳|SG|Singapore|新加坡|SGP|SIN|🇸🇬
     update_interval: 86400
-    icon: https://raw.githubusercontent.com/TellMeWhy31415926/icon/refs/heads/main/kendeji2clear_com_tran.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
     hidden: false
 - external:
     name: 2号机场
     type: select
     urls:
     - 2号机场订阅链接
-    #filter: 新加坡•移联02|台湾•移联01
+    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳|SG|Singapore|新加坡|SGP|SIN|🇸🇬
     update_interval: 86400
-    icon: https://raw.githubusercontent.com/TellMeWhy31415926/icon/refs/heads/main/Screenshot_20260916_111921_Firefox.jpg
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
     hidden: false
 - external:
     name: 3号机场
     type: select
     urls:
     - 3号机场订阅链接
-    #filter: Singapore 03|Taiwan 03
+    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳|SG|Singapore|新加坡|SGP|SIN|🇸🇬
     update_interval: 86400
-    icon: https://raw.githubusercontent.com/TellMeWhy31415926/icon/refs/heads/main/Screenshot_20260916_112137_Firefox.jpg
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.pngshot_20260916_112137_Firefox.jpg
     hidden: false
 - auto_test:
     name: TW自动
@@ -209,11 +209,11 @@ policy_groups:
     - 2号机场
     - 3号机场
     flatten: true
-    filter: TW|台湾|Taiwan
+    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳
     interval: 900
     tolerance: 30
     timeout: 3
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TW.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     hidden: false
 - auto_test:
     name: SG自动
@@ -222,11 +222,11 @@ policy_groups:
     - 2号机场
     - 3号机场
     flatten: true
-    filter: SG|新加坡|Singapore
+    filter: SG|Singapore|新加坡|SGP|SIN|🇸🇬
     interval: 900
     tolerance: 30
     timeout: 3
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/SG.png
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
     hidden: false
 - select:
     name: AiHub策略
