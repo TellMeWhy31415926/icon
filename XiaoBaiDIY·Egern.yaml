@@ -200,7 +200,7 @@ policy_groups:
     - 3号机场订阅链接
     filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE|SG|Singapore|新加坡|狮城|SGP|SIN
     update_interval: 86400
-    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.pngshot_20260916_112137_Firefox.jpg
+    icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
     hidden: true
 - auto_test:
     name: TW自动
