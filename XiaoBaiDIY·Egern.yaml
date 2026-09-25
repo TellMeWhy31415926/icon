@@ -180,7 +180,7 @@ policy_groups:
     type: select
     urls:
     - 1号机场订阅链接
-    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳|SG|Singapore|新加坡|SGP|SIN|🇸🇬
+    filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE|SG|Singapore|新加坡|狮城|SGP|SIN
     update_interval: 86400
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
     hidden: false
@@ -189,19 +189,19 @@ policy_groups:
     type: select
     urls:
     - 2号机场订阅链接
-    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳|SG|Singapore|新加坡|SGP|SIN|🇸🇬
+    filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE|SG|Singapore|新加坡|狮城|SGP|SIN
     update_interval: 86400
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
-    hidden: false
+    hidden: true
 - external:
     name: 3号机场
     type: select
     urls:
     - 3号机场订阅链接
-    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳|SG|Singapore|新加坡|SGP|SIN|🇸🇬
+    filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE|SG|Singapore|新加坡|狮城|SGP|SIN
     update_interval: 86400
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.pngshot_20260916_112137_Firefox.jpg
-    hidden: false
+    hidden: true
 - auto_test:
     name: TW自动
     policies:
@@ -209,9 +209,9 @@ policy_groups:
     - 2号机场
     - 3号机场
     flatten: true
-    filter: TW|Taiwan|台湾|Taipei|台北|TPE|🇹🇼|🇨🇳
-    interval: 900
-    tolerance: 30
+    filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE
+    interval: 600
+    tolerance: 25
     timeout: 3
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
     hidden: false
@@ -222,9 +222,9 @@ policy_groups:
     - 2号机场
     - 3号机场
     flatten: true
-    filter: SG|Singapore|新加坡|SGP|SIN|🇸🇬
-    interval: 900
-    tolerance: 30
+    filter: (?i)SG|Singapore|新加坡|狮城|SGP|SIN
+    interval: 600
+    tolerance: 25
     timeout: 3
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
     hidden: false
