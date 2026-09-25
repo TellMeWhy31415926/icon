@@ -1,6 +1,6 @@
 ipv6: true
 allow_external_connections: false
-vif_only: true
+vif_only: false
 block_quic: false
 close_connections_on_policy_change: false
 hide_vpn_icon: false
