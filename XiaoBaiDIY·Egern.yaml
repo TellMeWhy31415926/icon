@@ -179,7 +179,7 @@ policy_groups:
     name: 1号机场
     type: select
     urls:
-    - 1号机场订阅链接
+    - 替换为1号机场的Surge/Shadowrocket格式链接
     filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE|SG|Singapore|新加坡|狮城|SGP|SIN
     update_interval: 86400
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
@@ -188,11 +188,11 @@ policy_groups:
     name: 2号机场
     type: select
     urls:
-    - 2号机场订阅链接
+    - 替换为2号机场的Surge/Shadowrocket格式链接
     filter: (?i)TW|Taiwan|台湾|台北|Taipei|TPE|SG|Singapore|新加坡|狮城|SGP|SIN
     update_interval: 86400
     icon: https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png
-    hidden: true
+    hidden: false
 - auto_test:
     name: TW自动
     policies:
@@ -210,7 +210,6 @@ policy_groups:
     policies:
     - 1号机场
     - 2号机场
-    - 3号机场
     flatten: true
     filter: (?i)SG|Singapore|新加坡|狮城|SGP|SIN
     interval: 600
